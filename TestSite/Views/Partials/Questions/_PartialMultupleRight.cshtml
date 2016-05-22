@@ -1,0 +1,11 @@
+﻿@model TestSite.Models.QuestionModelView
+
+<div class="col-md-12 js-one-answer-block">
+    <div class="col-md-10 js-one-answer-count">
+        @Html.EditorFor(model => model.CountAnswers)
+    </div>
+    <div class="col-md-10 js-one-answer-text-field">
+        <input type="checkbox" />
+        @Html.EditorFor(model => model.Text)
+    </div>
+</div>

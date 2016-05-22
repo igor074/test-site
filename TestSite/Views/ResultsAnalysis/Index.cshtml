@@ -1,0 +1,200 @@
+﻿@model TestSite.Models.ResultsAnalysisModelView
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Results</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <b>Тестируемый:</b>&nbsp;
+            @Html.DisplayFor(model => model.LearnerName)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <b>Группа:</b>&nbsp;
+            @Html.DisplayFor(model => model.GroupName)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <b>Учебное заведение:</b>&nbsp;
+            @Html.DisplayFor(model => model.InstitutionName)
+        </div>
+    </div>
+    <hr/>
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#simple" aria-controls="simple" role="tab" data-toggle="tab">Классический метод</a></li>
+                <li role="presentation"><a href="#simpleTime" aria-controls="simpleTime" role="tab" data-toggle="tab">С учетом времени</a></li>
+                <li role="presentation"><a href="#level" aria-controls="level" role="tab" data-toggle="tab">Уровень усвоения</a></li>
+                <li role="presentation"><a href="#lineApproximation" aria-controls="lineApproximation" role="tab" data-toggle="tab">Линейно-кусочная аппроксимация</a></li>
+                <li role="presentation"><a href="#statistic" aria-controls="statistic" role="tab" data-toggle="tab">Статистическая модель</a></li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane fade in active" id="simple">
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>Оценка:</b>&nbsp;
+                            @Html.DisplayFor(model => model.SimpleFinalMark)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>Кол-во правильных ответов:</b>&nbsp;
+                            @Html.DisplayFor(model => model.SimpleCountRightAnswers)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>Общее кол-во вопросов:</b>&nbsp;
+                            @Html.DisplayFor(model => model.SimpleTotalQuestionsCount)
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="simpleTime">
+                    <br />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>Оценка:</b>&nbsp;
+                            @Html.DisplayFor(model => model.SimpleTimeFinalMark)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>Кол-во правильных ответов:</b>&nbsp;
+                            @Html.DisplayFor(model => model.SimpleTimeCountRightAnswers)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>Общее кол-во вопросов:</b>&nbsp;
+                            @Html.DisplayFor(model => model.SimpleTimeTotalQuestionsCount)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>С превышением лимита времени:</b>&nbsp;
+                            @Html.DisplayFor(model => model.SimpleTimeTotalAnswersOvertimeCount)
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="level">
+                    <br />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>Кол-во правильных ответов:</b>&nbsp;
+                            @Html.DisplayFor(model => model.LevelCountRightAnswers)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>Общее кол-во вопросов:</b>&nbsp;
+                            @Html.DisplayFor(model => model.LevelTotalQuestionsCount)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>Понимание:</b>&nbsp;
+                            @Html.DisplayFor(model => model.LevelUnderstanding1)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>Воспроизведение:</b>&nbsp;
+                            @Html.DisplayFor(model => model.LevelUnderstanding2)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>Применение:</b>&nbsp;
+                            @Html.DisplayFor(model => model.LevelUnderstanding3)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>Опознание:</b>&nbsp;
+                            @Html.DisplayFor(model => model.LevelUnderstanding4)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>Творческая деятельность:</b>&nbsp;
+                            @Html.DisplayFor(model => model.LevelUnderstanding5)
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="lineApproximation">
+                    <br />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>Оценка:</b>&nbsp;
+                            @Html.DisplayFor(model => model.LineApproximationFinalMark)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>Кол-во правильных ответов:</b>&nbsp;
+                            @Html.DisplayFor(model => model.LineApproximationCountRightAnswers)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>Общее кол-во вопросов:</b>&nbsp;
+                            @Html.DisplayFor(model => model.LineApproximationTotalQuestionsCount)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>С превышением лимита времени:</b>&nbsp;
+                            @Html.DisplayFor(model => model.LineApproximationTotalAnswersOvertimeCount)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>Кол-во попыток:</b>&nbsp;
+                            @Html.DisplayFor(model => model.LineApproximationAttemptCount)
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="statistic">
+                    <br />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>Оценка:</b>&nbsp;
+                            @Html.DisplayFor(model => model.StatisticFinalMark)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>Кол-во правильных ответов:</b>&nbsp;
+                            @Html.DisplayFor(model => model.StatisticCountRightAnswers)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>Общее кол-во вопросов:</b>&nbsp;
+                            @Html.DisplayFor(model => model.StatisticTotalQuestionsCount)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>Дисперсия:</b>&nbsp;
+                            @Html.DisplayFor(model => model.StatisticDispersion)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

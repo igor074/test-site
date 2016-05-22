@@ -1,0 +1,18 @@
+﻿@model TestSite.Models.QuestionModelView
+
+<div class="col-md-12 js-one-answer-block">
+    <div class="col-md-10 js-one-answer-count">
+        @Html.EditorFor(model => model.CountAnswers, new { @class = "control-label col-md-2" })
+    </div>
+    <div class="col-md-10 btn-group js-one-answer-inputs-block">
+        <div class="col-md-10 js-one-answer-text-field">
+            <div class="radio">
+                <input type="radio" name="oneAnswer"/>
+            </div>
+            @Html.EditorFor(model => model.Text, new { @class = "js-one-answer-count-number" })
+        </div>
+    </div>
+</div>
+
+
+    
