@@ -1,0 +1,77 @@
+﻿@model TestSite.Models.Question
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Question</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.QuestionTypeID, "Question Type", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("QuestionTypeID", String.Empty)
+                @Html.ValidationMessageFor(model => model.QuestionTypeID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.QuestionAreaID, "Question Area", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("QuestionAreaID", String.Empty)
+                @Html.ValidationMessageFor(model => model.QuestionAreaID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Complexity, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Complexity)
+                @Html.ValidationMessageFor(model => model.Complexity)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Points, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Points)
+                @Html.ValidationMessageFor(model => model.Points)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Text, new { @class = "control-label col-md-2" })
+            <div class="col-md-10 js-question-text">
+                @Html.EditorFor(model => model.Text)
+                @Html.ValidationMessageFor(model => model.Text)
+            </div>
+        </div>
+
+        <div class="js-content-placeholder"></div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default js-create-question-submit-btn" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/question-type")
+}

@@ -1,0 +1,27 @@
+﻿@model IEnumerable<TestSite.Models.QuestionArea>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Области вопросов</h2>
+
+<p>
+    @Html.ActionLink("Создать новый", "Create")
+</p>
+<table class="table">
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuestionAreaName)
+        </td>
+        <td>
+            @Html.ActionLink("Редактировать", "Edit", new { id=item.QuestionAreaID }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.QuestionAreaID })
+        </td>
+    </tr>
+}
+
+</table>
