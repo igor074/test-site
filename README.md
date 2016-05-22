@@ -8,3 +8,11 @@
 5. Run project.
 6. ...
 7. PROFIT!
+
+### How to delete database
+1. Run SQL Server Management Studio
+2. Connect to `(LocalDb)\v11.0`
+3. Open `Databases` folder
+4. Find database with `aspnet-` prefix
+5. Delete.
+
