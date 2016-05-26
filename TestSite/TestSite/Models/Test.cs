@@ -10,6 +10,8 @@ namespace TestSite.Models
         public int TestID { get; set; }
         public string TestName { get; set; }
 
+        public Nullable<int> SolvingTime { get; set; }
+
         public ICollection<Question> Questions { get; set; }
 
         public Test()

@@ -44,6 +44,7 @@ namespace TestSite.Models
         public int StatisticTotalQuestionsCount { get; set; }
         public double StatisticDispersion { get; set; }
         public double[,] GraphicData { get; set; }
+        public string StatisticResult { get; set; }
 
         public ResultsAnalysisModelView() { }
 

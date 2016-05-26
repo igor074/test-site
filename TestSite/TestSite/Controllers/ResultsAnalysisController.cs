@@ -45,7 +45,8 @@ namespace TestSite.Controllers
                 StatisticFinalMark = 4,
                 StatisticCountRightAnswers = 35,
                 StatisticTotalQuestionsCount = 40,
-                StatisticDispersion = 271
+                StatisticDispersion = 271,
+                StatisticResult = "Экспоненциальный"
             };
             return View(mv);
         }

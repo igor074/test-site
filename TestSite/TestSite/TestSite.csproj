@@ -163,18 +163,70 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InstitutionController.cs" />
-    <Compile Include="Controllers\OlympiadController.cs" />
     <Compile Include="Controllers\PartialsController.cs" />
     <Compile Include="Controllers\QuestionAreaController.cs" />
     <Compile Include="Controllers\QuestionController.cs" />
     <Compile Include="Controllers\QuestionTypeController.cs" />
     <Compile Include="Controllers\ResultsAnalysisController.cs" />
+    <Compile Include="Diagrams\AnswerQuestions.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Diagrams\Answers.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Diagrams\Groups.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Diagrams\IdentityRoles.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Diagrams\IdentityUserClaims.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Diagrams\IdentityUserLogins.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Diagrams\IdentityUserRoles.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Diagrams\IdentityUsers.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Diagrams\Institutions.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Diagrams\LearnerAnswers.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Diagrams\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Diagrams\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Diagrams\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Diagrams\QuestionAreas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Diagrams\Questions.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Diagrams\QuestionTypes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Diagrams\Tests.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605221052522_Initial.cs" />
-    <Compile Include="Migrations\201605221052522_Initial.Designer.cs">
-      <DependentUpon>201605221052522_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -182,12 +234,11 @@
     <Compile Include="Models\AnswerQuestion.cs" />
     <Compile Include="Models\Configurations\IdentityUserLoginConfiguration.cs" />
     <Compile Include="Models\Configurations\IdentityUserRoleConfiguration.cs" />
+    <Compile Include="Models\Group.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Institution.cs" />
-    <Compile Include="Models\Learner.cs" />
     <Compile Include="Models\LearnerAnswer.cs" />
     <Compile Include="Models\QuestionArea.cs" />
-    <Compile Include="Models\Olympiad.cs" />
     <Compile Include="Models\Question.cs" />
     <Compile Include="Models\QuestionModelView.cs" />
     <Compile Include="Models\QuestionType.cs" />
@@ -207,6 +258,23 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Diagrams\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Diagrams\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Diagrams\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Diagrams\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -265,11 +333,6 @@
     <Content Include="Views\Institution\Details.cshtml" />
     <Content Include="Views\Institution\Edit.cshtml" />
     <Content Include="Views\Institution\Index.cshtml" />
-    <Content Include="Views\Olympiad\Create.cshtml" />
-    <Content Include="Views\Olympiad\Delete.cshtml" />
-    <Content Include="Views\Olympiad\Details.cshtml" />
-    <Content Include="Views\Olympiad\Edit.cshtml" />
-    <Content Include="Views\Olympiad\Index.cshtml" />
     <Content Include="Views\Partials\_PartialQuestion.cshtml" />
     <Content Include="Views\Partials\Questions\_PartialOneRight.cshtml" />
     <Content Include="Views\Partials\Questions\_PartialMultupleRight.cshtml" />
@@ -292,12 +355,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201605221052522_Initial.resx">
-      <DependentUpon>201605221052522_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

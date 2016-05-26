@@ -17,6 +17,9 @@ namespace TestSite.Models
 
         public Nullable<int> Complexity { get; set; }
         public string Text { get; set; }
+
+        public Nullable<int> SolvingTime { get; set; }
+
         public Nullable<int> Points { get; set; }
         public string ImagePath { get; set; }
 

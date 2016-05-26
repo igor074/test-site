@@ -7,6 +7,8 @@ namespace TestSite.Models
     {
         public int QuestionAreaID { get; set; }
         public string QuestionAreaName { get; set; }
+        public double Possibility { get; set; }
+        public int ParentQuestionAreaID { get; set; }
 
         public ICollection<Question> Questions { get; set; }
 
