@@ -77,3 +77,17 @@ a {
 .table tbody > tr > td {
     border-top: 1px solid #8E8E8E;
 }
+
+.create-test-row {
+    margin-top: 0.5em;
+}
+
+.questions-block {
+    overflow: auto;
+    max-height: 400px;
+}
+
+input[type="file"] {
+    display: inline-block;
+}
+

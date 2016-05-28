@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0245285e50154adab587e1c0341ea4d6" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.AnswerQuestions" Width="1.5" PointX="8.875" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Answers" Width="1.5" PointX="2.75" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Groups" Width="1.5" PointX="3.125" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.IdentityRoles" Width="1.5" PointX="0.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.IdentityUserClaims" Width="1.5" PointX="9" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.IdentityUserLogins" Width="1.5" PointX="7.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.IdentityUserRoles" Width="1.5" PointX="3.125" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.IdentityUsers" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Institutions" Width="1.5" PointX="0.5" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.LearnerAnswers" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.QuestionAreas" Width="1.5" PointX="8.875" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Questions" Width="1.5" PointX="4.875" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.QuestionTypes" Width="1.5" PointX="6.875" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Tests" Width="1.5" PointX="7" PointY="1.625" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_dbo_AnswerQuestions_dbo_Answers_AnswerID" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_AnswerQuestions_dbo_Questions_Question_QuestionID_Question_QuestionAreaID_Question_QuestionTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_LearnerAnswers_dbo_Answers_AnswerID" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_Groups_dbo_Institutions_InstitutionID" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_IdentityUsers_dbo_Groups_Group_GroupID_Group_InstitutionID" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_IdentityUserRoles_dbo_IdentityRoles_Role_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_IdentityUserClaims_dbo_IdentityUsers_User_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_IdentityUserLogins_dbo_IdentityUsers_User_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_IdentityUserRoles_dbo_IdentityUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_LearnerAnswers_dbo_IdentityUsers_Learner_Id" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="Model.FK_dbo_LearnerAnswers_dbo_Questions_Question_QuestionID_Question_QuestionAreaID_Question_QuestionTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_Questions_dbo_QuestionAreas_QuestionAreaID" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_Questions_dbo_QuestionTypes_QuestionTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.TestQuestions" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

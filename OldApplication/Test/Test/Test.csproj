@@ -1,0 +1,425 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5D630C4E-4138-4E0F-9DE4-52DEBE4EAA9F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Test</RootNamespace>
+    <AssemblyName>Test</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>опубликовать\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConvertDataTable.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddTest.Designer.cs">
+      <DependentUpon>FormAddTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddUser.Designer.cs">
+      <DependentUpon>FormAddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChooseTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChooseTest.Designer.cs">
+      <DependentUpon>FormChooseTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChooseType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChooseType.Designer.cs">
+      <DependentUpon>FormChooseType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormOblastiVoprosa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOblastiVoprosa.Designer.cs">
+      <DependentUpon>FormOblastiVoprosa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormOlimpiady.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOlimpiady.Designer.cs">
+      <DependentUpon>FormOlimpiady.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormOtvetyUchenikov.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOtvetyUchenikov.Designer.cs">
+      <DependentUpon>FormOtvetyUchenikov.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTests.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTests.Designer.cs">
+      <DependentUpon>FormTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTipVoprosa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTipVoprosa.Designer.cs">
+      <DependentUpon>FormTipVoprosa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUchebnyeZavedenija.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUchebnyeZavedenija.Designer.cs">
+      <DependentUpon>FormUchebnyeZavedenija.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUcheniki.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUcheniki.Designer.cs">
+      <DependentUpon>FormUcheniki.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUserTesting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUserTesting.Designer.cs">
+      <DependentUpon>FormUserTesting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormViewOtvetyUch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormViewOtvetyUch.Designer.cs">
+      <DependentUpon>FormViewOtvetyUch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoadAssembles.cs" />
+    <Compile Include="OtvetyOlimp.cs" />
+    <Compile Include="PanelsCreateQuestion\PanelCompare.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PanelsCreateQuestion\PanelCompare.Designer.cs">
+      <DependentUpon>PanelCompare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PanelsCreateQuestion\PanelFullAnswer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PanelsCreateQuestion\PanelFullAnswer.Designer.cs">
+      <DependentUpon>PanelFullAnswer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PanelsCreateQuestion\PanelGraphic.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PanelsCreateQuestion\PanelGraphic.Designer.cs">
+      <DependentUpon>PanelGraphic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PanelsCreateQuestion\PanelInsertWord.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PanelsCreateQuestion\PanelInsertWord.Designer.cs">
+      <DependentUpon>PanelInsertWord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PanelsCreateQuestion\PanelLogicRelation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PanelsCreateQuestion\PanelLogicRelation.Designer.cs">
+      <DependentUpon>PanelLogicRelation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PanelsCreateQuestion\PanelMatching.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PanelsCreateQuestion\PanelMatching.Designer.cs">
+      <DependentUpon>PanelMatching.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PanelsCreateQuestion\PanelMoreOneVariant.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PanelsCreateQuestion\PanelMoreOneVariant.Designer.cs">
+      <DependentUpon>PanelMoreOneVariant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PanelsCreateQuestion\PanelOneVariant.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PanelsCreateQuestion\PanelOneVariant.Designer.cs">
+      <DependentUpon>PanelOneVariant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PanelsCreateQuestion\PanelSelection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PanelsCreateQuestion\PanelSelection.Designer.cs">
+      <DependentUpon>PanelSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PanelsCreateQuestion\PanelChronice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PanelsCreateQuestion\PanelChronice.Designer.cs">
+      <DependentUpon>PanelChronice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FormSozdanieVoprosa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSozdanieVoprosa.Designer.cs">
+      <DependentUpon>FormSozdanieVoprosa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestDataSet.cs">
+      <DependentUpon>TestDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TestDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FormCheckOlimp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCheckOlimp.Designer.cs">
+      <DependentUpon>FormCheckOlimp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUserTestingAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUserTestingAdd.Designer.cs">
+      <DependentUpon>FormUserTestingAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUserTestingOlimp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUserTestingOlimp.Designer.cs">
+      <DependentUpon>FormUserTestingOlimp.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddTest.resx">
+      <DependentUpon>FormAddTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddUser.resx">
+      <DependentUpon>FormAddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChooseTest.resx">
+      <DependentUpon>FormChooseTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChooseType.resx">
+      <DependentUpon>FormChooseType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOblastiVoprosa.resx">
+      <DependentUpon>FormOblastiVoprosa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOlimpiady.resx">
+      <DependentUpon>FormOlimpiady.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOtvetyUchenikov.resx">
+      <DependentUpon>FormOtvetyUchenikov.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTests.resx">
+      <DependentUpon>FormTests.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTipVoprosa.resx">
+      <DependentUpon>FormTipVoprosa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUchebnyeZavedenija.resx">
+      <DependentUpon>FormUchebnyeZavedenija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUcheniki.resx">
+      <DependentUpon>FormUcheniki.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUserTesting.resx">
+      <DependentUpon>FormUserTesting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormViewOtvetyUch.resx">
+      <DependentUpon>FormViewOtvetyUch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PanelsCreateQuestion\PanelCompare.resx">
+      <DependentUpon>PanelCompare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PanelsCreateQuestion\PanelFullAnswer.resx">
+      <DependentUpon>PanelFullAnswer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PanelsCreateQuestion\PanelGraphic.resx">
+      <DependentUpon>PanelGraphic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PanelsCreateQuestion\PanelInsertWord.resx">
+      <DependentUpon>PanelInsertWord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PanelsCreateQuestion\PanelLogicRelation.resx">
+      <DependentUpon>PanelLogicRelation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PanelsCreateQuestion\PanelMatching.resx">
+      <DependentUpon>PanelMatching.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PanelsCreateQuestion\PanelMoreOneVariant.resx">
+      <DependentUpon>PanelMoreOneVariant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PanelsCreateQuestion\PanelOneVariant.resx">
+      <DependentUpon>PanelOneVariant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PanelsCreateQuestion\PanelSelection.resx">
+      <DependentUpon>PanelSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PanelsCreateQuestion\PanelChronice.resx">
+      <DependentUpon>PanelChronice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FormSozdanieVoprosa.resx">
+      <DependentUpon>FormSozdanieVoprosa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCheckOlimp.resx">
+      <DependentUpon>FormCheckOlimp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUserTestingAdd.resx">
+      <DependentUpon>FormUserTestingAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUserTestingOlimp.resx">
+      <DependentUpon>FormUserTestingOlimp.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="TestDataSet.xsc">
+      <DependentUpon>TestDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TestDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TestDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TestDataSet.xss">
+      <DependentUpon>TestDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Test.sdf" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>Клиентский профиль .NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SQL.Server.Compact.4.0">
+      <Visible>False</Visible>
+      <ProductName>SQL Server Compact 4.0 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IQuestionLib\IQuestionLib.csproj">
+      <Project>{95947daa-9ca5-4e0f-a671-e53deac40140}</Project>
+      <Name>IQuestionLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

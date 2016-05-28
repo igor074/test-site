@@ -1,0 +1,1057 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AnswerQuestions">
+          <Key>
+            <PropertyRef Name="AnswerID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="AnswerID" Type="int" Nullable="false" />
+          <Property Name="QuestionID" Type="int" Nullable="false" />
+          <Property Name="IsRight" Type="bit" />
+          <Property Name="Question_QuestionID" Type="int" />
+          <Property Name="Question_QuestionAreaID" Type="int" />
+          <Property Name="Question_QuestionTypeID" Type="int" />
+        </EntityType>
+        <EntityType Name="Answers">
+          <Key>
+            <PropertyRef Name="AnswerID" />
+          </Key>
+          <Property Name="AnswerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AnswerText" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Groups">
+          <Key>
+            <PropertyRef Name="GroupID" />
+            <PropertyRef Name="InstitutionID" />
+          </Key>
+          <Property Name="GroupID" Type="int" Nullable="false" />
+          <Property Name="InstitutionID" Type="int" Nullable="false" />
+          <Property Name="GroupName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="IdentityRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="IdentityUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+          <Property Name="User_Id" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="IdentityUserLogins">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="LoginProvider" Type="nvarchar(max)" />
+          <Property Name="ProviderKey" Type="nvarchar(max)" />
+          <Property Name="User_Id" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="IdentityUserRoles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" />
+          <Property Name="Role_Id" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="IdentityUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar(max)" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="GroupID" Type="int" />
+          <Property Name="FirstName" Type="nvarchar(max)" />
+          <Property Name="LastName" Type="nvarchar(max)" />
+          <Property Name="MiddleName" Type="nvarchar(max)" />
+          <Property Name="Discriminator" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Group_GroupID" Type="int" />
+          <Property Name="Group_InstitutionID" Type="int" />
+        </EntityType>
+        <EntityType Name="Institutions">
+          <Key>
+            <PropertyRef Name="InstitutionID" />
+          </Key>
+          <Property Name="InstitutionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InstitutionName" Type="nvarchar(max)" />
+          <Property Name="InstitutionPlace" Type="nvarchar(max)" />
+          <Property Name="InstitutionAddress" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="LearnerAnswers">
+          <Key>
+            <PropertyRef Name="AnswerID" />
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="AnswerID" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="QuestionID" Type="int" Nullable="false" />
+          <Property Name="LearnerAnswer1" Type="nvarchar(max)" />
+          <Property Name="Learner_Id" Type="nvarchar" MaxLength="128" />
+          <Property Name="Question_QuestionID" Type="int" />
+          <Property Name="Question_QuestionAreaID" Type="int" />
+          <Property Name="Question_QuestionTypeID" Type="int" />
+        </EntityType>
+        <EntityType Name="QuestionAreas">
+          <Key>
+            <PropertyRef Name="QuestionAreaID" />
+          </Key>
+          <Property Name="QuestionAreaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QuestionAreaName" Type="nvarchar(max)" />
+          <Property Name="Possibility" Type="float" Nullable="false" />
+          <Property Name="ParentQuestionAreaID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Questions">
+          <Key>
+            <PropertyRef Name="QuestionID" />
+            <PropertyRef Name="QuestionAreaID" />
+            <PropertyRef Name="QuestionTypeID" />
+          </Key>
+          <Property Name="QuestionID" Type="int" Nullable="false" />
+          <Property Name="QuestionAreaID" Type="int" Nullable="false" />
+          <Property Name="QuestionTypeID" Type="int" Nullable="false" />
+          <Property Name="Complexity" Type="int" />
+          <Property Name="Text" Type="nvarchar(max)" />
+          <Property Name="SolvingTime" Type="int" />
+          <Property Name="Points" Type="int" />
+          <Property Name="ImagePath" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="QuestionTypes">
+          <Key>
+            <PropertyRef Name="QuestionTypeID" />
+          </Key>
+          <Property Name="QuestionTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QuestionTypeName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TestQuestions">
+          <Key>
+            <PropertyRef Name="Test_TestID" />
+            <PropertyRef Name="Question_QuestionID" />
+            <PropertyRef Name="Question_QuestionAreaID" />
+            <PropertyRef Name="Question_QuestionTypeID" />
+          </Key>
+          <Property Name="Test_TestID" Type="int" Nullable="false" />
+          <Property Name="Question_QuestionID" Type="int" Nullable="false" />
+          <Property Name="Question_QuestionAreaID" Type="int" Nullable="false" />
+          <Property Name="Question_QuestionTypeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tests">
+          <Key>
+            <PropertyRef Name="TestID" />
+          </Key>
+          <Property Name="TestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TestName" Type="nvarchar(max)" />
+          <Property Name="SolvingTime" Type="int" />
+        </EntityType>
+        <Association Name="FK_dbo_AnswerQuestions_dbo_Answers_AnswerID">
+          <End Role="Answers" Type="Self.Answers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AnswerQuestions" Type="Self.AnswerQuestions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Answers">
+              <PropertyRef Name="AnswerID" />
+            </Principal>
+            <Dependent Role="AnswerQuestions">
+              <PropertyRef Name="AnswerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AnswerQuestions_dbo_Questions_Question_QuestionID_Question_QuestionAreaID_Question_QuestionTypeID">
+          <End Role="Questions" Type="Self.Questions" Multiplicity="0..1" />
+          <End Role="AnswerQuestions" Type="Self.AnswerQuestions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questions">
+              <PropertyRef Name="QuestionID" />
+              <PropertyRef Name="QuestionAreaID" />
+              <PropertyRef Name="QuestionTypeID" />
+            </Principal>
+            <Dependent Role="AnswerQuestions">
+              <PropertyRef Name="Question_QuestionID" />
+              <PropertyRef Name="Question_QuestionAreaID" />
+              <PropertyRef Name="Question_QuestionTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Groups_dbo_Institutions_InstitutionID">
+          <End Role="Institutions" Type="Self.Institutions" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Groups" Type="Self.Groups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Institutions">
+              <PropertyRef Name="InstitutionID" />
+            </Principal>
+            <Dependent Role="Groups">
+              <PropertyRef Name="InstitutionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_IdentityUserClaims_dbo_IdentityUsers_User_Id">
+          <End Role="IdentityUsers" Type="Self.IdentityUsers" Multiplicity="0..1" />
+          <End Role="IdentityUserClaims" Type="Self.IdentityUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IdentityUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="IdentityUserClaims">
+              <PropertyRef Name="User_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_IdentityUserLogins_dbo_IdentityUsers_User_Id">
+          <End Role="IdentityUsers" Type="Self.IdentityUsers" Multiplicity="0..1" />
+          <End Role="IdentityUserLogins" Type="Self.IdentityUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IdentityUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="IdentityUserLogins">
+              <PropertyRef Name="User_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_IdentityUserRoles_dbo_IdentityRoles_Role_Id">
+          <End Role="IdentityRoles" Type="Self.IdentityRoles" Multiplicity="0..1" />
+          <End Role="IdentityUserRoles" Type="Self.IdentityUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IdentityRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="IdentityUserRoles">
+              <PropertyRef Name="Role_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_IdentityUserRoles_dbo_IdentityUsers_UserId">
+          <End Role="IdentityUsers" Type="Self.IdentityUsers" Multiplicity="0..1" />
+          <End Role="IdentityUserRoles" Type="Self.IdentityUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IdentityUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="IdentityUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_IdentityUsers_dbo_Groups_Group_GroupID_Group_InstitutionID">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+          <End Role="IdentityUsers" Type="Self.IdentityUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="GroupID" />
+              <PropertyRef Name="InstitutionID" />
+            </Principal>
+            <Dependent Role="IdentityUsers">
+              <PropertyRef Name="Group_GroupID" />
+              <PropertyRef Name="Group_InstitutionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_LearnerAnswers_dbo_Answers_AnswerID">
+          <End Role="Answers" Type="Self.Answers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LearnerAnswers" Type="Self.LearnerAnswers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Answers">
+              <PropertyRef Name="AnswerID" />
+            </Principal>
+            <Dependent Role="LearnerAnswers">
+              <PropertyRef Name="AnswerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_LearnerAnswers_dbo_IdentityUsers_Learner_Id">
+          <End Role="IdentityUsers" Type="Self.IdentityUsers" Multiplicity="0..1" />
+          <End Role="LearnerAnswers" Type="Self.LearnerAnswers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IdentityUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LearnerAnswers">
+              <PropertyRef Name="Learner_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_LearnerAnswers_dbo_Questions_Question_QuestionID_Question_QuestionAreaID_Question_QuestionTypeID">
+          <End Role="Questions" Type="Self.Questions" Multiplicity="0..1" />
+          <End Role="LearnerAnswers" Type="Self.LearnerAnswers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questions">
+              <PropertyRef Name="QuestionID" />
+              <PropertyRef Name="QuestionAreaID" />
+              <PropertyRef Name="QuestionTypeID" />
+            </Principal>
+            <Dependent Role="LearnerAnswers">
+              <PropertyRef Name="Question_QuestionID" />
+              <PropertyRef Name="Question_QuestionAreaID" />
+              <PropertyRef Name="Question_QuestionTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Questions_dbo_QuestionAreas_QuestionAreaID">
+          <End Role="QuestionAreas" Type="Self.QuestionAreas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuestionAreas">
+              <PropertyRef Name="QuestionAreaID" />
+            </Principal>
+            <Dependent Role="Questions">
+              <PropertyRef Name="QuestionAreaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Questions_dbo_QuestionTypes_QuestionTypeID">
+          <End Role="QuestionTypes" Type="Self.QuestionTypes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuestionTypes">
+              <PropertyRef Name="QuestionTypeID" />
+            </Principal>
+            <Dependent Role="Questions">
+              <PropertyRef Name="QuestionTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_TestQuestions_dbo_Questions_Question_QuestionID_Question_QuestionAreaID_Question_QuestionTypeID">
+          <End Role="Questions" Type="Self.Questions" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TestQuestions" Type="Self.TestQuestions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questions">
+              <PropertyRef Name="QuestionID" />
+              <PropertyRef Name="QuestionAreaID" />
+              <PropertyRef Name="QuestionTypeID" />
+            </Principal>
+            <Dependent Role="TestQuestions">
+              <PropertyRef Name="Question_QuestionID" />
+              <PropertyRef Name="Question_QuestionAreaID" />
+              <PropertyRef Name="Question_QuestionTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_TestQuestions_dbo_Tests_Test_TestID">
+          <End Role="Tests" Type="Self.Tests" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TestQuestions" Type="Self.TestQuestions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tests">
+              <PropertyRef Name="TestID" />
+            </Principal>
+            <Dependent Role="TestQuestions">
+              <PropertyRef Name="Test_TestID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище ModelContainer">
+          <EntitySet Name="AnswerQuestions" EntityType="Self.AnswerQuestions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Answers" EntityType="Self.Answers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IdentityRoles" EntityType="Self.IdentityRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IdentityUserClaims" EntityType="Self.IdentityUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IdentityUserLogins" EntityType="Self.IdentityUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IdentityUserRoles" EntityType="Self.IdentityUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IdentityUsers" EntityType="Self.IdentityUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Institutions" EntityType="Self.Institutions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LearnerAnswers" EntityType="Self.LearnerAnswers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QuestionAreas" EntityType="Self.QuestionAreas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Questions" EntityType="Self.Questions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QuestionTypes" EntityType="Self.QuestionTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TestQuestions" EntityType="Self.TestQuestions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tests" EntityType="Self.Tests" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_AnswerQuestions_dbo_Answers_AnswerID" Association="Self.FK_dbo_AnswerQuestions_dbo_Answers_AnswerID">
+            <End Role="Answers" EntitySet="Answers" />
+            <End Role="AnswerQuestions" EntitySet="AnswerQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AnswerQuestions_dbo_Questions_Question_QuestionID_Question_QuestionAreaID_Question_QuestionTypeID" Association="Self.FK_dbo_AnswerQuestions_dbo_Questions_Question_QuestionID_Question_QuestionAreaID_Question_QuestionTypeID">
+            <End Role="Questions" EntitySet="Questions" />
+            <End Role="AnswerQuestions" EntitySet="AnswerQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Groups_dbo_Institutions_InstitutionID" Association="Self.FK_dbo_Groups_dbo_Institutions_InstitutionID">
+            <End Role="Institutions" EntitySet="Institutions" />
+            <End Role="Groups" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_IdentityUserClaims_dbo_IdentityUsers_User_Id" Association="Self.FK_dbo_IdentityUserClaims_dbo_IdentityUsers_User_Id">
+            <End Role="IdentityUsers" EntitySet="IdentityUsers" />
+            <End Role="IdentityUserClaims" EntitySet="IdentityUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_IdentityUserLogins_dbo_IdentityUsers_User_Id" Association="Self.FK_dbo_IdentityUserLogins_dbo_IdentityUsers_User_Id">
+            <End Role="IdentityUsers" EntitySet="IdentityUsers" />
+            <End Role="IdentityUserLogins" EntitySet="IdentityUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_IdentityUserRoles_dbo_IdentityRoles_Role_Id" Association="Self.FK_dbo_IdentityUserRoles_dbo_IdentityRoles_Role_Id">
+            <End Role="IdentityRoles" EntitySet="IdentityRoles" />
+            <End Role="IdentityUserRoles" EntitySet="IdentityUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_IdentityUserRoles_dbo_IdentityUsers_UserId" Association="Self.FK_dbo_IdentityUserRoles_dbo_IdentityUsers_UserId">
+            <End Role="IdentityUsers" EntitySet="IdentityUsers" />
+            <End Role="IdentityUserRoles" EntitySet="IdentityUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_IdentityUsers_dbo_Groups_Group_GroupID_Group_InstitutionID" Association="Self.FK_dbo_IdentityUsers_dbo_Groups_Group_GroupID_Group_InstitutionID">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="IdentityUsers" EntitySet="IdentityUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_LearnerAnswers_dbo_Answers_AnswerID" Association="Self.FK_dbo_LearnerAnswers_dbo_Answers_AnswerID">
+            <End Role="Answers" EntitySet="Answers" />
+            <End Role="LearnerAnswers" EntitySet="LearnerAnswers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_LearnerAnswers_dbo_IdentityUsers_Learner_Id" Association="Self.FK_dbo_LearnerAnswers_dbo_IdentityUsers_Learner_Id">
+            <End Role="IdentityUsers" EntitySet="IdentityUsers" />
+            <End Role="LearnerAnswers" EntitySet="LearnerAnswers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_LearnerAnswers_dbo_Questions_Question_QuestionID_Question_QuestionAreaID_Question_QuestionTypeID" Association="Self.FK_dbo_LearnerAnswers_dbo_Questions_Question_QuestionID_Question_QuestionAreaID_Question_QuestionTypeID">
+            <End Role="Questions" EntitySet="Questions" />
+            <End Role="LearnerAnswers" EntitySet="LearnerAnswers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Questions_dbo_QuestionAreas_QuestionAreaID" Association="Self.FK_dbo_Questions_dbo_QuestionAreas_QuestionAreaID">
+            <End Role="QuestionAreas" EntitySet="QuestionAreas" />
+            <End Role="Questions" EntitySet="Questions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Questions_dbo_QuestionTypes_QuestionTypeID" Association="Self.FK_dbo_Questions_dbo_QuestionTypes_QuestionTypeID">
+            <End Role="QuestionTypes" EntitySet="QuestionTypes" />
+            <End Role="Questions" EntitySet="Questions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_TestQuestions_dbo_Questions_Question_QuestionID_Question_QuestionAreaID_Question_QuestionTypeID" Association="Self.FK_dbo_TestQuestions_dbo_Questions_Question_QuestionID_Question_QuestionAreaID_Question_QuestionTypeID">
+            <End Role="Questions" EntitySet="Questions" />
+            <End Role="TestQuestions" EntitySet="TestQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_TestQuestions_dbo_Tests_Test_TestID" Association="Self.FK_dbo_TestQuestions_dbo_Tests_Test_TestID">
+            <End Role="Tests" EntitySet="Tests" />
+            <End Role="TestQuestions" EntitySet="TestQuestions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AnswerQuestions">
+          <Key>
+            <PropertyRef Name="AnswerID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="AnswerID" Type="Int32" Nullable="false" />
+          <Property Name="QuestionID" Type="Int32" Nullable="false" />
+          <Property Name="IsRight" Type="Boolean" />
+          <Property Name="Question_QuestionID" Type="Int32" />
+          <Property Name="Question_QuestionAreaID" Type="Int32" />
+          <Property Name="Question_QuestionTypeID" Type="Int32" />
+          <NavigationProperty Name="Answers" Relationship="Self.FK_dbo_AnswerQuestions_dbo_Answers_AnswerID" FromRole="AnswerQuestions" ToRole="Answers" />
+          <NavigationProperty Name="Questions" Relationship="Self.FK_dbo_AnswerQuestions_dbo_Questions_Question_QuestionID_Question_QuestionAreaID_Question_QuestionTypeID" FromRole="AnswerQuestions" ToRole="Questions" />
+        </EntityType>
+        <EntityType Name="Answers">
+          <Key>
+            <PropertyRef Name="AnswerID" />
+          </Key>
+          <Property Name="AnswerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AnswerText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AnswerQuestions" Relationship="Self.FK_dbo_AnswerQuestions_dbo_Answers_AnswerID" FromRole="Answers" ToRole="AnswerQuestions" />
+          <NavigationProperty Name="LearnerAnswers" Relationship="Self.FK_dbo_LearnerAnswers_dbo_Answers_AnswerID" FromRole="Answers" ToRole="LearnerAnswers" />
+        </EntityType>
+        <EntityType Name="Groups">
+          <Key>
+            <PropertyRef Name="GroupID" />
+            <PropertyRef Name="InstitutionID" />
+          </Key>
+          <Property Name="GroupID" Type="Int32" Nullable="false" />
+          <Property Name="InstitutionID" Type="Int32" Nullable="false" />
+          <Property Name="GroupName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Institutions" Relationship="Self.FK_dbo_Groups_dbo_Institutions_InstitutionID" FromRole="Groups" ToRole="Institutions" />
+          <NavigationProperty Name="IdentityUsers" Relationship="Self.FK_dbo_IdentityUsers_dbo_Groups_Group_GroupID_Group_InstitutionID" FromRole="Groups" ToRole="IdentityUsers" />
+        </EntityType>
+        <EntityType Name="IdentityRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="IdentityUserRoles" Relationship="Self.FK_dbo_IdentityUserRoles_dbo_IdentityRoles_Role_Id" FromRole="IdentityRoles" ToRole="IdentityUserRoles" />
+        </EntityType>
+        <EntityType Name="IdentityUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="User_Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="IdentityUsers" Relationship="Self.FK_dbo_IdentityUserClaims_dbo_IdentityUsers_User_Id" FromRole="IdentityUserClaims" ToRole="IdentityUsers" />
+        </EntityType>
+        <EntityType Name="IdentityUserLogins">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoginProvider" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderKey" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="User_Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="IdentityUsers" Relationship="Self.FK_dbo_IdentityUserLogins_dbo_IdentityUsers_User_Id" FromRole="IdentityUserLogins" ToRole="IdentityUsers" />
+        </EntityType>
+        <EntityType Name="IdentityUserRoles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Role_Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="IdentityRoles" Relationship="Self.FK_dbo_IdentityUserRoles_dbo_IdentityRoles_Role_Id" FromRole="IdentityUserRoles" ToRole="IdentityRoles" />
+          <NavigationProperty Name="IdentityUsers" Relationship="Self.FK_dbo_IdentityUserRoles_dbo_IdentityUsers_UserId" FromRole="IdentityUserRoles" ToRole="IdentityUsers" />
+        </EntityType>
+        <EntityType Name="IdentityUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GroupID" Type="Int32" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MiddleName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Discriminator" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Group_GroupID" Type="Int32" />
+          <Property Name="Group_InstitutionID" Type="Int32" />
+          <NavigationProperty Name="Groups" Relationship="Self.FK_dbo_IdentityUsers_dbo_Groups_Group_GroupID_Group_InstitutionID" FromRole="IdentityUsers" ToRole="Groups" />
+          <NavigationProperty Name="IdentityUserClaims" Relationship="Self.FK_dbo_IdentityUserClaims_dbo_IdentityUsers_User_Id" FromRole="IdentityUsers" ToRole="IdentityUserClaims" />
+          <NavigationProperty Name="IdentityUserLogins" Relationship="Self.FK_dbo_IdentityUserLogins_dbo_IdentityUsers_User_Id" FromRole="IdentityUsers" ToRole="IdentityUserLogins" />
+          <NavigationProperty Name="IdentityUserRoles" Relationship="Self.FK_dbo_IdentityUserRoles_dbo_IdentityUsers_UserId" FromRole="IdentityUsers" ToRole="IdentityUserRoles" />
+          <NavigationProperty Name="LearnerAnswers" Relationship="Self.FK_dbo_LearnerAnswers_dbo_IdentityUsers_Learner_Id" FromRole="IdentityUsers" ToRole="LearnerAnswers" />
+        </EntityType>
+        <EntityType Name="Institutions">
+          <Key>
+            <PropertyRef Name="InstitutionID" />
+          </Key>
+          <Property Name="InstitutionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InstitutionName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InstitutionPlace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InstitutionAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Groups" Relationship="Self.FK_dbo_Groups_dbo_Institutions_InstitutionID" FromRole="Institutions" ToRole="Groups" />
+        </EntityType>
+        <EntityType Name="LearnerAnswers">
+          <Key>
+            <PropertyRef Name="AnswerID" />
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="AnswerID" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="QuestionID" Type="Int32" Nullable="false" />
+          <Property Name="LearnerAnswer1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Learner_Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Question_QuestionID" Type="Int32" />
+          <Property Name="Question_QuestionAreaID" Type="Int32" />
+          <Property Name="Question_QuestionTypeID" Type="Int32" />
+          <NavigationProperty Name="Answers" Relationship="Self.FK_dbo_LearnerAnswers_dbo_Answers_AnswerID" FromRole="LearnerAnswers" ToRole="Answers" />
+          <NavigationProperty Name="IdentityUsers" Relationship="Self.FK_dbo_LearnerAnswers_dbo_IdentityUsers_Learner_Id" FromRole="LearnerAnswers" ToRole="IdentityUsers" />
+          <NavigationProperty Name="Questions" Relationship="Self.FK_dbo_LearnerAnswers_dbo_Questions_Question_QuestionID_Question_QuestionAreaID_Question_QuestionTypeID" FromRole="LearnerAnswers" ToRole="Questions" />
+        </EntityType>
+        <EntityType Name="QuestionAreas">
+          <Key>
+            <PropertyRef Name="QuestionAreaID" />
+          </Key>
+          <Property Name="QuestionAreaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuestionAreaName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Possibility" Type="Double" Nullable="false" />
+          <Property Name="ParentQuestionAreaID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Questions" Relationship="Self.FK_dbo_Questions_dbo_QuestionAreas_QuestionAreaID" FromRole="QuestionAreas" ToRole="Questions" />
+        </EntityType>
+        <EntityType Name="Questions">
+          <Key>
+            <PropertyRef Name="QuestionID" />
+            <PropertyRef Name="QuestionAreaID" />
+            <PropertyRef Name="QuestionTypeID" />
+          </Key>
+          <Property Name="QuestionID" Type="Int32" Nullable="false" />
+          <Property Name="QuestionAreaID" Type="Int32" Nullable="false" />
+          <Property Name="QuestionTypeID" Type="Int32" Nullable="false" />
+          <Property Name="Complexity" Type="Int32" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SolvingTime" Type="Int32" />
+          <Property Name="Points" Type="Int32" />
+          <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AnswerQuestions" Relationship="Self.FK_dbo_AnswerQuestions_dbo_Questions_Question_QuestionID_Question_QuestionAreaID_Question_QuestionTypeID" FromRole="Questions" ToRole="AnswerQuestions" />
+          <NavigationProperty Name="LearnerAnswers" Relationship="Self.FK_dbo_LearnerAnswers_dbo_Questions_Question_QuestionID_Question_QuestionAreaID_Question_QuestionTypeID" FromRole="Questions" ToRole="LearnerAnswers" />
+          <NavigationProperty Name="QuestionAreas" Relationship="Self.FK_dbo_Questions_dbo_QuestionAreas_QuestionAreaID" FromRole="Questions" ToRole="QuestionAreas" />
+          <NavigationProperty Name="QuestionTypes" Relationship="Self.FK_dbo_Questions_dbo_QuestionTypes_QuestionTypeID" FromRole="Questions" ToRole="QuestionTypes" />
+          <NavigationProperty Name="Tests" Relationship="Self.TestQuestions" FromRole="Questions" ToRole="Tests" />
+        </EntityType>
+        <EntityType Name="QuestionTypes">
+          <Key>
+            <PropertyRef Name="QuestionTypeID" />
+          </Key>
+          <Property Name="QuestionTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuestionTypeName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Questions" Relationship="Self.FK_dbo_Questions_dbo_QuestionTypes_QuestionTypeID" FromRole="QuestionTypes" ToRole="Questions" />
+        </EntityType>
+        <EntityType Name="Tests">
+          <Key>
+            <PropertyRef Name="TestID" />
+          </Key>
+          <Property Name="TestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TestName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SolvingTime" Type="Int32" />
+          <NavigationProperty Name="Questions" Relationship="Self.TestQuestions" FromRole="Tests" ToRole="Questions" />
+        </EntityType>
+        <Association Name="FK_dbo_AnswerQuestions_dbo_Answers_AnswerID">
+          <End Role="Answers" Type="Self.Answers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AnswerQuestions" Type="Self.AnswerQuestions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Answers">
+              <PropertyRef Name="AnswerID" />
+            </Principal>
+            <Dependent Role="AnswerQuestions">
+              <PropertyRef Name="AnswerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AnswerQuestions_dbo_Questions_Question_QuestionID_Question_QuestionAreaID_Question_QuestionTypeID">
+          <End Role="Questions" Type="Self.Questions" Multiplicity="0..1" />
+          <End Role="AnswerQuestions" Type="Self.AnswerQuestions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questions">
+              <PropertyRef Name="QuestionID" />
+              <PropertyRef Name="QuestionAreaID" />
+              <PropertyRef Name="QuestionTypeID" />
+            </Principal>
+            <Dependent Role="AnswerQuestions">
+              <PropertyRef Name="Question_QuestionID" />
+              <PropertyRef Name="Question_QuestionAreaID" />
+              <PropertyRef Name="Question_QuestionTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_LearnerAnswers_dbo_Answers_AnswerID">
+          <End Role="Answers" Type="Self.Answers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LearnerAnswers" Type="Self.LearnerAnswers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Answers">
+              <PropertyRef Name="AnswerID" />
+            </Principal>
+            <Dependent Role="LearnerAnswers">
+              <PropertyRef Name="AnswerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Groups_dbo_Institutions_InstitutionID">
+          <End Role="Institutions" Type="Self.Institutions" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Groups" Type="Self.Groups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Institutions">
+              <PropertyRef Name="InstitutionID" />
+            </Principal>
+            <Dependent Role="Groups">
+              <PropertyRef Name="InstitutionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_IdentityUsers_dbo_Groups_Group_GroupID_Group_InstitutionID">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+          <End Role="IdentityUsers" Type="Self.IdentityUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="GroupID" />
+              <PropertyRef Name="InstitutionID" />
+            </Principal>
+            <Dependent Role="IdentityUsers">
+              <PropertyRef Name="Group_GroupID" />
+              <PropertyRef Name="Group_InstitutionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_IdentityUserRoles_dbo_IdentityRoles_Role_Id">
+          <End Role="IdentityRoles" Type="Self.IdentityRoles" Multiplicity="0..1" />
+          <End Role="IdentityUserRoles" Type="Self.IdentityUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IdentityRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="IdentityUserRoles">
+              <PropertyRef Name="Role_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_IdentityUserClaims_dbo_IdentityUsers_User_Id">
+          <End Role="IdentityUsers" Type="Self.IdentityUsers" Multiplicity="0..1" />
+          <End Role="IdentityUserClaims" Type="Self.IdentityUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IdentityUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="IdentityUserClaims">
+              <PropertyRef Name="User_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_IdentityUserLogins_dbo_IdentityUsers_User_Id">
+          <End Role="IdentityUsers" Type="Self.IdentityUsers" Multiplicity="0..1" />
+          <End Role="IdentityUserLogins" Type="Self.IdentityUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IdentityUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="IdentityUserLogins">
+              <PropertyRef Name="User_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_IdentityUserRoles_dbo_IdentityUsers_UserId">
+          <End Role="IdentityUsers" Type="Self.IdentityUsers" Multiplicity="0..1" />
+          <End Role="IdentityUserRoles" Type="Self.IdentityUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IdentityUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="IdentityUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_LearnerAnswers_dbo_IdentityUsers_Learner_Id">
+          <End Role="IdentityUsers" Type="Self.IdentityUsers" Multiplicity="0..1" />
+          <End Role="LearnerAnswers" Type="Self.LearnerAnswers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IdentityUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LearnerAnswers">
+              <PropertyRef Name="Learner_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_LearnerAnswers_dbo_Questions_Question_QuestionID_Question_QuestionAreaID_Question_QuestionTypeID">
+          <End Role="Questions" Type="Self.Questions" Multiplicity="0..1" />
+          <End Role="LearnerAnswers" Type="Self.LearnerAnswers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questions">
+              <PropertyRef Name="QuestionID" />
+              <PropertyRef Name="QuestionAreaID" />
+              <PropertyRef Name="QuestionTypeID" />
+            </Principal>
+            <Dependent Role="LearnerAnswers">
+              <PropertyRef Name="Question_QuestionID" />
+              <PropertyRef Name="Question_QuestionAreaID" />
+              <PropertyRef Name="Question_QuestionTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Questions_dbo_QuestionAreas_QuestionAreaID">
+          <End Role="QuestionAreas" Type="Self.QuestionAreas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuestionAreas">
+              <PropertyRef Name="QuestionAreaID" />
+            </Principal>
+            <Dependent Role="Questions">
+              <PropertyRef Name="QuestionAreaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Questions_dbo_QuestionTypes_QuestionTypeID">
+          <End Role="QuestionTypes" Type="Self.QuestionTypes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuestionTypes">
+              <PropertyRef Name="QuestionTypeID" />
+            </Principal>
+            <Dependent Role="Questions">
+              <PropertyRef Name="QuestionTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TestQuestions">
+          <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
+          <End Role="Tests" Type="Self.Tests" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AnswerQuestions" EntityType="Self.AnswerQuestions" />
+          <EntitySet Name="Answers" EntityType="Self.Answers" />
+          <EntitySet Name="Groups" EntityType="Self.Groups" />
+          <EntitySet Name="IdentityRoles" EntityType="Self.IdentityRoles" />
+          <EntitySet Name="IdentityUserClaims" EntityType="Self.IdentityUserClaims" />
+          <EntitySet Name="IdentityUserLogins" EntityType="Self.IdentityUserLogins" />
+          <EntitySet Name="IdentityUserRoles" EntityType="Self.IdentityUserRoles" />
+          <EntitySet Name="IdentityUsers" EntityType="Self.IdentityUsers" />
+          <EntitySet Name="Institutions" EntityType="Self.Institutions" />
+          <EntitySet Name="LearnerAnswers" EntityType="Self.LearnerAnswers" />
+          <EntitySet Name="QuestionAreas" EntityType="Self.QuestionAreas" />
+          <EntitySet Name="Questions" EntityType="Self.Questions" />
+          <EntitySet Name="QuestionTypes" EntityType="Self.QuestionTypes" />
+          <EntitySet Name="Tests" EntityType="Self.Tests" />
+          <AssociationSet Name="FK_dbo_AnswerQuestions_dbo_Answers_AnswerID" Association="Self.FK_dbo_AnswerQuestions_dbo_Answers_AnswerID">
+            <End Role="Answers" EntitySet="Answers" />
+            <End Role="AnswerQuestions" EntitySet="AnswerQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AnswerQuestions_dbo_Questions_Question_QuestionID_Question_QuestionAreaID_Question_QuestionTypeID" Association="Self.FK_dbo_AnswerQuestions_dbo_Questions_Question_QuestionID_Question_QuestionAreaID_Question_QuestionTypeID">
+            <End Role="Questions" EntitySet="Questions" />
+            <End Role="AnswerQuestions" EntitySet="AnswerQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_LearnerAnswers_dbo_Answers_AnswerID" Association="Self.FK_dbo_LearnerAnswers_dbo_Answers_AnswerID">
+            <End Role="Answers" EntitySet="Answers" />
+            <End Role="LearnerAnswers" EntitySet="LearnerAnswers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Groups_dbo_Institutions_InstitutionID" Association="Self.FK_dbo_Groups_dbo_Institutions_InstitutionID">
+            <End Role="Institutions" EntitySet="Institutions" />
+            <End Role="Groups" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_IdentityUsers_dbo_Groups_Group_GroupID_Group_InstitutionID" Association="Self.FK_dbo_IdentityUsers_dbo_Groups_Group_GroupID_Group_InstitutionID">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="IdentityUsers" EntitySet="IdentityUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_IdentityUserRoles_dbo_IdentityRoles_Role_Id" Association="Self.FK_dbo_IdentityUserRoles_dbo_IdentityRoles_Role_Id">
+            <End Role="IdentityRoles" EntitySet="IdentityRoles" />
+            <End Role="IdentityUserRoles" EntitySet="IdentityUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_IdentityUserClaims_dbo_IdentityUsers_User_Id" Association="Self.FK_dbo_IdentityUserClaims_dbo_IdentityUsers_User_Id">
+            <End Role="IdentityUsers" EntitySet="IdentityUsers" />
+            <End Role="IdentityUserClaims" EntitySet="IdentityUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_IdentityUserLogins_dbo_IdentityUsers_User_Id" Association="Self.FK_dbo_IdentityUserLogins_dbo_IdentityUsers_User_Id">
+            <End Role="IdentityUsers" EntitySet="IdentityUsers" />
+            <End Role="IdentityUserLogins" EntitySet="IdentityUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_IdentityUserRoles_dbo_IdentityUsers_UserId" Association="Self.FK_dbo_IdentityUserRoles_dbo_IdentityUsers_UserId">
+            <End Role="IdentityUsers" EntitySet="IdentityUsers" />
+            <End Role="IdentityUserRoles" EntitySet="IdentityUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_LearnerAnswers_dbo_IdentityUsers_Learner_Id" Association="Self.FK_dbo_LearnerAnswers_dbo_IdentityUsers_Learner_Id">
+            <End Role="IdentityUsers" EntitySet="IdentityUsers" />
+            <End Role="LearnerAnswers" EntitySet="LearnerAnswers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_LearnerAnswers_dbo_Questions_Question_QuestionID_Question_QuestionAreaID_Question_QuestionTypeID" Association="Self.FK_dbo_LearnerAnswers_dbo_Questions_Question_QuestionID_Question_QuestionAreaID_Question_QuestionTypeID">
+            <End Role="Questions" EntitySet="Questions" />
+            <End Role="LearnerAnswers" EntitySet="LearnerAnswers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Questions_dbo_QuestionAreas_QuestionAreaID" Association="Self.FK_dbo_Questions_dbo_QuestionAreas_QuestionAreaID">
+            <End Role="QuestionAreas" EntitySet="QuestionAreas" />
+            <End Role="Questions" EntitySet="Questions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Questions_dbo_QuestionTypes_QuestionTypeID" Association="Self.FK_dbo_Questions_dbo_QuestionTypes_QuestionTypeID">
+            <End Role="QuestionTypes" EntitySet="QuestionTypes" />
+            <End Role="Questions" EntitySet="Questions" />
+          </AssociationSet>
+          <AssociationSet Name="TestQuestions" Association="Self.TestQuestions">
+            <End Role="Questions" EntitySet="Questions" />
+            <End Role="Tests" EntitySet="Tests" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="AnswerQuestions">
+            <EntityTypeMapping TypeName="Model.AnswerQuestions">
+              <MappingFragment StoreEntitySet="AnswerQuestions">
+                <ScalarProperty Name="AnswerID" ColumnName="AnswerID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="IsRight" ColumnName="IsRight" />
+                <ScalarProperty Name="Question_QuestionID" ColumnName="Question_QuestionID" />
+                <ScalarProperty Name="Question_QuestionAreaID" ColumnName="Question_QuestionAreaID" />
+                <ScalarProperty Name="Question_QuestionTypeID" ColumnName="Question_QuestionTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Answers">
+            <EntityTypeMapping TypeName="Model.Answers">
+              <MappingFragment StoreEntitySet="Answers">
+                <ScalarProperty Name="AnswerID" ColumnName="AnswerID" />
+                <ScalarProperty Name="AnswerText" ColumnName="AnswerText" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Groups">
+            <EntityTypeMapping TypeName="Model.Groups">
+              <MappingFragment StoreEntitySet="Groups">
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="InstitutionID" ColumnName="InstitutionID" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IdentityRoles">
+            <EntityTypeMapping TypeName="Model.IdentityRoles">
+              <MappingFragment StoreEntitySet="IdentityRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IdentityUserClaims">
+            <EntityTypeMapping TypeName="Model.IdentityUserClaims">
+              <MappingFragment StoreEntitySet="IdentityUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IdentityUserLogins">
+            <EntityTypeMapping TypeName="Model.IdentityUserLogins">
+              <MappingFragment StoreEntitySet="IdentityUserLogins">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IdentityUserRoles">
+            <EntityTypeMapping TypeName="Model.IdentityUserRoles">
+              <MappingFragment StoreEntitySet="IdentityUserRoles">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Role_Id" ColumnName="Role_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IdentityUsers">
+            <EntityTypeMapping TypeName="Model.IdentityUsers">
+              <MappingFragment StoreEntitySet="IdentityUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="Discriminator" ColumnName="Discriminator" />
+                <ScalarProperty Name="Group_GroupID" ColumnName="Group_GroupID" />
+                <ScalarProperty Name="Group_InstitutionID" ColumnName="Group_InstitutionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Institutions">
+            <EntityTypeMapping TypeName="Model.Institutions">
+              <MappingFragment StoreEntitySet="Institutions">
+                <ScalarProperty Name="InstitutionID" ColumnName="InstitutionID" />
+                <ScalarProperty Name="InstitutionName" ColumnName="InstitutionName" />
+                <ScalarProperty Name="InstitutionPlace" ColumnName="InstitutionPlace" />
+                <ScalarProperty Name="InstitutionAddress" ColumnName="InstitutionAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LearnerAnswers">
+            <EntityTypeMapping TypeName="Model.LearnerAnswers">
+              <MappingFragment StoreEntitySet="LearnerAnswers">
+                <ScalarProperty Name="AnswerID" ColumnName="AnswerID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="LearnerAnswer1" ColumnName="LearnerAnswer1" />
+                <ScalarProperty Name="Learner_Id" ColumnName="Learner_Id" />
+                <ScalarProperty Name="Question_QuestionID" ColumnName="Question_QuestionID" />
+                <ScalarProperty Name="Question_QuestionAreaID" ColumnName="Question_QuestionAreaID" />
+                <ScalarProperty Name="Question_QuestionTypeID" ColumnName="Question_QuestionTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QuestionAreas">
+            <EntityTypeMapping TypeName="Model.QuestionAreas">
+              <MappingFragment StoreEntitySet="QuestionAreas">
+                <ScalarProperty Name="QuestionAreaID" ColumnName="QuestionAreaID" />
+                <ScalarProperty Name="QuestionAreaName" ColumnName="QuestionAreaName" />
+                <ScalarProperty Name="Possibility" ColumnName="Possibility" />
+                <ScalarProperty Name="ParentQuestionAreaID" ColumnName="ParentQuestionAreaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Questions">
+            <EntityTypeMapping TypeName="Model.Questions">
+              <MappingFragment StoreEntitySet="Questions">
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="QuestionAreaID" ColumnName="QuestionAreaID" />
+                <ScalarProperty Name="QuestionTypeID" ColumnName="QuestionTypeID" />
+                <ScalarProperty Name="Complexity" ColumnName="Complexity" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="SolvingTime" ColumnName="SolvingTime" />
+                <ScalarProperty Name="Points" ColumnName="Points" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QuestionTypes">
+            <EntityTypeMapping TypeName="Model.QuestionTypes">
+              <MappingFragment StoreEntitySet="QuestionTypes">
+                <ScalarProperty Name="QuestionTypeID" ColumnName="QuestionTypeID" />
+                <ScalarProperty Name="QuestionTypeName" ColumnName="QuestionTypeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tests">
+            <EntityTypeMapping TypeName="Model.Tests">
+              <MappingFragment StoreEntitySet="Tests">
+                <ScalarProperty Name="TestID" ColumnName="TestID" />
+                <ScalarProperty Name="TestName" ColumnName="TestName" />
+                <ScalarProperty Name="SolvingTime" ColumnName="SolvingTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="TestQuestions" TypeName="Model.TestQuestions" StoreEntitySet="TestQuestions">
+            <EndProperty Name="Questions">
+              <ScalarProperty Name="QuestionID" ColumnName="Question_QuestionID" />
+              <ScalarProperty Name="QuestionAreaID" ColumnName="Question_QuestionAreaID" />
+              <ScalarProperty Name="QuestionTypeID" ColumnName="Question_QuestionTypeID" />
+            </EndProperty>
+            <EndProperty Name="Tests">
+              <ScalarProperty Name="TestID" ColumnName="Test_TestID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

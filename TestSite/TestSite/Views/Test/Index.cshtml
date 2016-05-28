@@ -1,0 +1,72 @@
+﻿@model TestSite.Models.TestViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2>Создание теста</h2>
+    <div class="row">
+        <div class="col-md-6">
+
+
+            <div class="row create-test-row">
+                <div class="col-md-4">
+                    <b>Название теста:</b>
+                </div>
+                <div class="col-md-8">
+                    @Html.TextBoxFor(model => model.TestName, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="row create-test-row">
+                <div class="col-md-4">
+                    <b>Время:</b>
+                </div>
+                <div class="col-md-8">
+                    @Html.TextBoxFor(model => model.TestTime, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="row create-test-row">
+                <div class="col-md-4">
+                    <b>Траектория:</b>
+                </div>
+                <div class="col-md-8">
+                    @Html.ListBoxFor(m => m.PathsTest, Model.PathsTest, new { size = 7, @class = "form-control" })
+                </div>
+            </div>
+            <div class="row create-test-row">
+                <div class="col-md-4">
+                    <b>Область вопроса:</b>
+                </div>
+                <div class="col-md-8">
+                    @Html.ListBoxFor(m => m.Areas, Model.Areas, new { size = 3, @class = "form-control" })
+                </div>
+            </div>
+            <div class="row create-test-row">
+                <div class="col-md-4"></div>
+                <div class="col-md-8">
+                    <button type="submit" class="btn btn-default">Создать</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row create-test-row">
+                <div class="col-md-2">
+                    <b>Вопросы:</b>
+                </div>
+                <div class="col-md-10 questions-block">
+                    @foreach (var question in Model.Questions)
+                    {
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="@question"> @question
+                            </label>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

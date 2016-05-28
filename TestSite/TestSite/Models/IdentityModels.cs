@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using TestSite.Models.Configurations;
 
 namespace TestSite.Models
 {
-    public class ApplicationUser : IdentityUser
+    public class User : IdentityUser
     {
         public int GroupID { get; set; }
         public Group Group { get; set; }
@@ -13,9 +14,16 @@ namespace TestSite.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string MiddleName { get; set; }
+
+        public ICollection<Test> Tests { get; set; }
+
+        public User()
+        {
+            Tests = new List<Test>();
+        }
     }
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<User>
     {
         public ApplicationDbContext()
             : base("name=DefaultConnection")
@@ -27,12 +35,12 @@ namespace TestSite.Models
             modelBuilder.Entity<Answer>().HasKey(a => a.AnswerID);
             modelBuilder.Entity<AnswerQuestion>().HasKey(a => new { a.AnswerID, a.QuestionID });
             modelBuilder.Entity<Institution>().HasKey(i => i.InstitutionID);
-            modelBuilder.Entity<LearnerAnswer>().HasKey(l => new { l.AnswerID, l.Id, l.QuestionID});
+            modelBuilder.Entity<LearnerAnswer>().HasKey(l => new { l.AnswerID, l.UserID, l.QuestionID});
             modelBuilder.Entity<QuestionArea>().HasKey(o => o.QuestionAreaID);
-            modelBuilder.Entity<Question>().HasKey(q => new { q.QuestionID, q.QuestionAreaID, q.QuestionTypeID });
+            modelBuilder.Entity<Question>().HasKey(q => new { q.QuestionID });
             modelBuilder.Entity<QuestionType>().HasKey(q => q.QuestionTypeID);
             modelBuilder.Entity<Test>().HasKey(t => t.TestID);
-            modelBuilder.Entity<Group>().HasKey(g => new { g.GroupID, g.InstitutionID});
+            modelBuilder.Entity<Group>().HasKey(g => new { g.GroupID });
 
             modelBuilder.Configurations.Add(new IdentityUserLoginConfiguration());
             modelBuilder.Configurations.Add(new IdentityUserRoleConfiguration());

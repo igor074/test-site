@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -10,6 +11,7 @@ namespace TestSite.Models
         private Question _question;
 
         public int QuestionTypeID { get; set; }
+        [Display(Name = "Текст вопроса")]
         public string Text { get; set; }
         public int CountAnswers { get; set; }
         public bool IsRight { get; set; }

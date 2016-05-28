@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<test>
+  <question number="1">
+    <text number="1">Вопрос</text>
+    <variant number="1">Вариант ответа</variant>
+    <variant number="2">Вариант ответа</variant>
+    <variant number="3">Вариант ответа</variant>
+    <variant number="4">Вариант ответа</variant>
+    <variant number="5">Вариант ответа</variant>
+    <variant number="6">Вариант ответа</variant>
+  </question>
+</test>

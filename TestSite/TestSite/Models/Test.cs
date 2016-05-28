@@ -12,11 +12,14 @@ namespace TestSite.Models
 
         public Nullable<int> SolvingTime { get; set; }
 
+        public ICollection<User> Users { get; set; }
+
         public ICollection<Question> Questions { get; set; }
 
         public Test()
         {
             Questions = new List<Question>();
+            Users = new List<User>();
         }
     }
 }

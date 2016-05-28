@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using MVC = System.Web.Mvc;
 
 namespace TestSite.Models
 {
@@ -59,5 +61,38 @@ namespace TestSite.Models
         [Display(Name = "Подтверждение пароля")]
         [Compare("Password", ErrorMessage = "Пароль и его подтверждение не совпадают.")]
         public string ConfirmPassword { get; set; }
+
+        [Display(Name = "Имя")]
+        public string FirstName { get; set; }
+
+        [Display(Name = "Фамилия")]
+        public string LastName { get; set; }
+
+        [Display(Name = "Отчество")]
+        public string MiddleName { get; set; }
+
+        public List<MVC.SelectListItem> Roles;
+        public List<MVC.SelectListItem> Groups;
+        public List<MVC.SelectListItem> Institutions;
+
+        public RegisterViewModel()
+        {
+            Roles = new List<MVC.SelectListItem>()
+            {
+                new MVC.SelectListItem() { Text = "Преподаватель" },
+                new MVC.SelectListItem() { Text = "Тестируемый" }
+            };
+
+            Groups = new List<MVC.SelectListItem>()
+            {
+                new MVC.SelectListItem() { Text = "ИТ-410" },
+                new MVC.SelectListItem() { Text = "БМТ-410" }
+            };
+
+            Institutions = new List<MVC.SelectListItem>()
+            {
+                new MVC.SelectListItem() { Text = "ОмГТУ" }
+            };
+        }
     }
 }

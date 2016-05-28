@@ -1,0 +1,36 @@
+﻿@model TestSite.Models.QuestionModelView
+
+<div class="form-group">
+    @Html.LabelFor(model => model.CountAnswers, "Кол-во ответов", new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.CountAnswers)
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+        <input type="checkbox">
+        <input type="text" value="Ответ 1" />
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+        <input type="checkbox">
+        <input type="text" value="Ответ 2" />
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+        <input type="checkbox">
+        <input type="text" value="Ответ 3" />
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+        <input type="checkbox">
+        <input type="text" value="Ответ 4" />
+    </div>
+</div>

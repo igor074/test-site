@@ -1,57 +1,53 @@
 ﻿@model TestSite.Models.QuestionModelView
 
-<div class="form-group">
-    @Html.HiddenFor(model => model.QuestionTypeID)
-    @Html.LabelFor(model => model.Text, new { @class = "control-label col-md-2" })
-    @switch (this.Model.QuestionTypeID)
+@switch (this.Model.QuestionTypeID)
+{
+    case 1: //Один правильный ответ
     {
-        case 1: //Один правильный ответ
-        {
-            @Html.Partial("~/Views/Partials/Questions/_PartialOneRight.cshtml", Model);
-            break;
-        }
-        case 2: //Несколько правильных ответов
-        {
-            @Html.Partial("~/Views/Partials/Questions/_PartialMiltipleRight.cshtml", Model);
-            break;
-        }
-        case 3: //Вставка значений в текст
-        {
-            @Html.Partial("~/Views/Partials/Questions/_PartialInsertText.cshtml", Model);
-            break;
-        }
-        case 4: //Полный ответ
-        {
-            @Html.Partial("~/Views/Partials/Questions/_PartialFullAnswer.cshtml", Model);
-            break;
-        }
-        case 5: //Соответсвия
-        {
-            @Html.Partial("~/Views/Partials/Questions/_PartialMatch.cshtml", Model);
-            break;
-        }
-        case 6: //Хронологическая последовательность
-        {
-            @Html.Partial("~/Views/Partials/Questions/_PartialTimeSequence.cshtml", Model);
-            break;
-        }
-        case 7: //Выделение слов
-        {
-            @Html.Partial("~/Views/Partials/Questions/_PartialWordSelection.cshtml", Model);
-            break;
-        }
-        case 8: //Количественное сравнение
-        {
-            @Html.Partial("~/Views/Partials/Questions/_PartialComparing.cshtml", Model);
-            break;
-        }
-        case 9: //Выбор русинка
-        {
-            @Html.Partial("~/Views/Partials/Questions/_PartialSelectImage.cshtml", Model);
-            break;
-        }
+        @Html.Partial("~/Views/Partials/Questions/_PartialOneRight.cshtml", Model);
+        break;
     }
-</div>
+    case 2: //Несколько правильных ответов
+    {
+        @Html.Partial("~/Views/Partials/Questions/_PartialMultipleRight.cshtml", Model);
+        break;
+    }
+    case 3: //Вставка значений в текст
+    {
+        @Html.Partial("~/Views/Partials/Questions/_PartialInsertText.cshtml", Model);
+        break;
+    }
+    case 4: //Полный ответ
+    {
+        @Html.Partial("~/Views/Partials/Questions/_PartialFullAnswer.cshtml", Model);
+        break;
+    }
+    case 5: //Соответсвия
+    {
+        @Html.Partial("~/Views/Partials/Questions/_PartialMatch.cshtml", Model);
+        break;
+    }
+    case 6: //Хронологическая последовательность
+    {
+        @Html.Partial("~/Views/Partials/Questions/_PartialTimeSequence.cshtml", Model);
+        break;
+    }
+    case 7: //Выделение слов
+    {
+        @Html.Partial("~/Views/Partials/Questions/_PartialWordSelection.cshtml", Model);
+        break;
+    }
+    case 8: //Количественное сравнение
+    {
+        @Html.Partial("~/Views/Partials/Questions/_PartialComparing.cshtml", Model);
+        break;
+    }
+    case 9: //Выбор русинка
+    {
+        @Html.Partial("~/Views/Partials/Questions/_PartialSelectImage.cshtml", Model);
+        break;
+    }
+}
 
 @section Scripts {
     @Scripts.Render("~/bundles/question-create")

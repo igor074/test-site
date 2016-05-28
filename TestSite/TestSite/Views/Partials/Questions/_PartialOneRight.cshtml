@@ -1,16 +1,37 @@
 ﻿@model TestSite.Models.QuestionModelView
 
-<div class="col-md-12 js-one-answer-block">
-    <div class="col-md-10 js-one-answer-count">
-        @Html.EditorFor(model => model.CountAnswers, new { @class = "control-label col-md-2" })
+<div class="form-group">
+    @Html.LabelFor(model => model.CountAnswers, "Кол-во ответов", new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.CountAnswers)
     </div>
-    <div class="col-md-10 btn-group js-one-answer-inputs-block">
-        <div class="col-md-10 js-one-answer-text-field">
-            <div class="radio">
-                <input type="radio" name="oneAnswer"/>
-            </div>
-            @Html.EditorFor(model => model.Text, new { @class = "js-one-answer-count-number" })
-        </div>
+</div>
+<div class="form-group">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+        <input type="radio" name="oneRight">
+        <input type="text" value="Ответ 1" />
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+        <input type="radio" name="oneRight">
+        <input type="text" value="Ответ 2" />
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+        <input type="radio" name="oneRight">
+        <input type="text" value="Ответ 3" />
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+        <input type="radio" name="oneRight">
+        <input type="text" value="Ответ 4" />
     </div>
 </div>
 

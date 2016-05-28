@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<test>
+  <question number="1">
+    <text number="1">В __________ году началась великая отечественная война.</text>
+	<right>1941</right>
+  </question>
+</test>
